@@ -1,0 +1,12 @@
+{
+  "name": "url2md",
+  "version": "1.0.0",
+  "description": "文章url转markdown",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "zhangjicheng",
+  "license": "ISC"
+}
