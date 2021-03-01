@@ -1,12 +1,20 @@
 {
-  "name": "url2md",
+  "name": "url_2md",
   "version": "0.0.1",
   "description": "文章url转markdown",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": [],
+  "keywords": ["markdown", "html", "url"],
   "author": "zhangjicheng",
-  "license": "ISC"
+  "license": "ISC",
+  "gitHead": "726be7610d29f23a618bb09bde362dceaff72158",
+  "dependencies": {
+    "chalk": "^4.1.0",
+    "cheerio": "^1.0.0-rc.5",
+    "commander": "^7.0.0",
+    "iconv-lite": "^0.6.2",
+    "progress": "^2.0.3"
+  }
 }
