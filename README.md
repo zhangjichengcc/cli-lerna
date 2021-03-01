@@ -1,7 +1,7 @@
 <!--
  * @Author: zhangjicheng
  * @Date: 2021-02-26 16:27:11
- * @LastEditTime: 2021-02-26 21:21:35
+ * @LastEditTime: 2021-03-01 15:02:22
  * @LastEditors: zhangjicheng
  * @Description: 
  * @FilePath: \cli-lerna\README.md
@@ -84,7 +84,16 @@ Example:
 
 
 ### diff:
-`diff [pkgName] // Diff all packages or a single package since the last release`     
+`diff [pkgName] // Diff all packages or a single package since the last release`    
+对比所有包或指定的包与最后一次发布的差异 类似git diff       
+Examples:
+``` bash
+# 查看所有变更
+> lerna diff
+
+# 查看指定包module1变更内容
+> lerna diff module1
+```
 
 ### exec:
 `exec -- [cmd] [args..] // Execute an arbitrary command in each package`     
