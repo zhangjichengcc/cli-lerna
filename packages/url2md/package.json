@@ -1,12 +1,16 @@
 {
   "name": "url_2md",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "文章url转markdown",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": ["markdown", "html", "url"],
+  "keywords": [
+    "markdown",
+    "html",
+    "url"
+  ],
   "author": "zhangjicheng",
   "license": "ISC",
   "gitHead": "726be7610d29f23a618bb09bde362dceaff72158",
