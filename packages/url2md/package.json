@@ -1,6 +1,6 @@
 {
   "name": "url_2md",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "文章url转markdown",
   "main": "index.js",
   "scripts": {
@@ -13,7 +13,7 @@
   ],
   "author": "zhangjicheng",
   "license": "ISC",
-  "gitHead": "726be7610d29f23a618bb09bde362dceaff72158",
+  "gitHead": "f40e49094de25ba7be3aa9352bb4a2deae6d4c6e",
   "dependencies": {
     "chalk": "^4.1.0",
     "cheerio": "^1.0.0-rc.5",
