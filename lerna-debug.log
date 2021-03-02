@@ -1,18 +1,7 @@
-0 silly argv {
-0 silly argv   _: [ 'import' ],
-0 silly argv   lernaVersion: '3.22.1',
-0 silly argv   '$0': 'C:\\Users\\25386-zhangjc\\AppData\\Roaming\\npm\\node_modules\\lerna\\cli.js',
-0 silly argv   dir: 'E:\\test\\node\\url2md'
-0 silly argv }
-1 notice cli v3.22.1
-2 verbose rootPath D:\workspace\cli-lerna
-3 error Error: Command failed: git log --format=%h
-3 error fatal: Not a git repository (or any of the parent directories): .git
-3 error
-3 error
-3 error     at makeError (C:\Users\25386-zhangjc\AppData\Roaming\npm\node_modules\lerna\node_modules\_execa@1.0.0@execa\index.js:174:9)
-3 error     at Function.module.exports.sync (C:\Users\25386-zhangjc\AppData\Roaming\npm\node_modules\lerna\node_modules\_execa@1.0.0@execa\index.js:338:15)
-3 error     at Object.execSync (C:\Users\25386-zhangjc\AppData\Roaming\npm\node_modules\lerna\node_modules\_@lerna_child-process@3.16.5@@lerna\child-process\index.js:26:16)
-3 error     at ImportCommand.externalExecSync (C:\Users\25386-zhangjc\AppData\Roaming\npm\node_modules\lerna\node_modules\_@lerna_import@3.22.0@@lerna\import\index.js:147:34)
-3 error     at ImportCommand.initialize (C:\Users\25386-zhangjc\AppData\Roaming\npm\node_modules\lerna\node_modules\_@lerna_import@3.22.0@@lerna\import\index.js:82:25)
-3 error     at C:\Users\25386-zhangjc\AppData\Roaming\npm\node_modules\lerna\node_modules\_@lerna_command@3.21.0@@lerna\command\index.js:272:24
+35 error Error: Command failed: git tag url_2md@0.0.3 -m url_2md@0.0.3
+35 error fatal: tag 'url_2md@0.0.3' already exists
+35 error
+35 error     at makeError (C:\Users\25386-zhangjc\AppData\Roaming\npm\node_modules\lerna\node_modules\_execa@1.0.0@execa\index.js:174:9)
+35 error     at C:\Users\25386-zhangjc\AppData\Roaming\npm\node_modules\lerna\node_modules\_execa@1.0.0@execa\index.js:278:16
+35 error     at processTicksAndRejections (internal/process/task_queues.js:93:5)
+35 error     at async Promise.all (index 0)

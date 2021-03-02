@@ -3,7 +3,7 @@
 /*
  * @Author: zhangjicheng
  * @Date: 2021-02-03 17:10:02
- * @LastEditTime: 2021-02-20 19:02:20
+ * @LastEditTime: 2021-03-02 19:59:51
  * @LastEditors: zhangjicheng
  * @Description: 
  * @可以输入预定的版权声明、个性签名、空行等
@@ -16,7 +16,7 @@ const ProgressBar = require('progress');
 const Https = require('https');
 const Http = require('http');
 const iconv = require('iconv-lite');
-const html2md=require('html-to-md');
+const html2md = require('html-to-md');
 
 /** 处理html字符串类 */
 class HtmlStr {

@@ -3,8 +3,9 @@
   "version": "0.0.3",
   "description": "文章url转markdown",
   "main": "index.js",
+  "private": true,
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "cross-env NODE_ENV=production webpack"
   },
   "keywords": [
     "markdown",
@@ -14,11 +15,22 @@
   "author": "zhangjicheng",
   "license": "ISC",
   "gitHead": "f40e49094de25ba7be3aa9352bb4a2deae6d4c6e",
+  "bin": {
+    "url_2md": "./bin/index.js"
+  },
   "dependencies": {
     "chalk": "^4.1.0",
     "cheerio": "^1.0.0-rc.5",
     "commander": "^7.0.0",
+    "html-to-md": "^0.3.9",
     "iconv-lite": "^0.6.2",
-    "progress": "^2.0.3"
+    "progress": "^2.0.3",
+    "webpack": "^5.24.2",
+    "webpack-cli": "^4.5.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.13.8",
+    "@babel/preset-env": "^7.13.9",
+    "babel-loader": "^8.2.2"
   }
 }
