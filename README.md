@@ -1,23 +1,33 @@
 <!--
  * @Author: zhangjicheng
  * @Date: 2021-02-26 16:27:11
- * @LastEditTime: 2021-03-01 15:02:22
+ * @LastEditTime: 2021-03-02 15:17:55
  * @LastEditors: zhangjicheng
  * @Description: 
  * @FilePath: \cli-lerna\README.md
  * @可以输入预定的版权声明、个性签名、空行等
 -->
-# `tax-mini-program`
+# `CLI-LERNA`
 
-税务移动端仓库，⚠️依赖统一使用 *[lerna](https://github.com/lerna/lerna)* 进行管理.
+cli仓库，⚠️依赖统一使用 *[lerna](https://github.com/lerna/lerna)* 进行管理.
 
-注意： 🌴 `packages` 文件夹中 **basic-components** 为其他模块依赖的公共组件
+注意： 🌴 本仓库采用 lerna + yarn【WorkSpace】方式进行管理
 
-### leran 简单使用
+## Lerna
+> Lerna能优化git和npm管理多包存储的工作流。Lerna内部使用Yarn和npm CLI来引导项目（即为每个包安装所有第三方依赖）。简单来说，对项目中的每个使用的包Lerna都是用yarn/npm进行安装，然后在引用的包之间创建软链接。 Lerna只是对包管理器进行了一层包装，所以Lerna无法有效的处理node_modules里面的内容
+
+> Lerna通过 yarn install 安装包，这会对重复引用的包多次安装，这样会使得项目变得过载，因为package.json里面的引用的包是相互独立的，不会批次共享依赖。所以经常使用的第三方包，都会重复安装，这会造成大量重复
+Lerna是先创建包，然后创建包之前的引用链接，这会造成的问题是会引起包管理器node_modules内的不一致，所以从包中运行yarn install可能会破坏Lerna管理的结构。
+
+## Yarn Workspaces
+> Yarn Workspaces允许用户在单个根package.json文件的子文件夹中从多个package.json文件中安装依赖。
+
+> 通过防止Workspaces中依赖包的重复，使原生Workspaces到Yarn可以实现更快更轻松的依赖安装。Yarn还可以在依赖于彼此的Workspaces之间创建软链接，并确保所有目录的一致性和正确性。
+## leran 简单使用
 
 **因为使用`lerna`进行包管理，依赖的安装和删除必须使用lerna 命令操作**
 
-# Global Options
+### Global Options
 --loglevel       What level of logs to report.                                       
 --concurrency    How many processes to use when lerna parallelizes tasks.             
 --reject-cycles  Fail if a cycle is detected among dependencies.                            
@@ -155,7 +165,36 @@ Example:
 ```
 
 ### version:
-`version [bump] // Bump version of packages changed since the last release.`         
+`version [bump] // Bump version of packages changed since the last release.`      
+
+
+## yarn.json
+
+``` js
+{
+  "useWorkspaces": true, // 使用 workspaces 配置。此项为 true 的话，将使用 package.json 的 "workspaces"，下面的 "packages" 字段将不生效
+  "version": "0.1.0", // 所有包版本号，独立模式-"independent"
+  "npmClient": "cnpm", // npm client，可设置为 cnpm、yarn 等
+  "packages": [ // 包所在目录，可指定多个
+    "packages/*"
+  ],
+  "command": { // lerna 命令相关配置
+    "publish": { // 发布相关
+      "ignoreChanges": [ // 指定文件或目录的变更，不触发 publish
+        ".gitignore",
+        "*.log",
+        "*.md"
+      ]
+    },
+    "bootstrap": { // bootstrap 相关
+      "ignore": "npm-*",  // 不受 bootstrap 影响的包
+      "npmClientArgs": [ // bootstr 执行参数
+        "--no-package-lock"
+      ]
+    }
+  }
+}
+```
 
 
 
