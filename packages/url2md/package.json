@@ -1,9 +1,8 @@
 {
-  "name": "url_2md",
-  "version": "0.0.4",
+  "name": "url_md",
+  "version": "0.0.5",
   "description": "文章url转markdown",
   "main": "index.js",
-  "private": true,
   "scripts": {
     "build": "cross-env NODE_ENV=production webpack",
     "line": "eslint src --fix",
@@ -18,7 +17,7 @@
   "license": "ISC",
   "gitHead": "f40e49094de25ba7be3aa9352bb4a2deae6d4c6e",
   "bin": {
-    "url_2md": "./bin/index.js"
+    "url_md": "./bin/index.js"
   },
   "dependencies": {
     "chalk": "^4.1.0",
@@ -48,5 +47,8 @@
     "typescript": "^4.2.2",
     "webpack": "^5.24.2",
     "webpack-cli": "^4.5.0"
-  }
+  },
+  "files": [
+    "bin"
+  ]
 }
