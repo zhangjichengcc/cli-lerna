@@ -1,7 +1,7 @@
 <!--
  * @Author: zhangjicheng
  * @Date: 2021-02-26 16:27:11
- * @LastEditTime: 2021-03-02 15:17:55
+ * @LastEditTime: 2021-03-03 11:47:23
  * @LastEditors: zhangjicheng
  * @Description: 
  * @FilePath: \cli-lerna\README.md
@@ -161,7 +161,7 @@ lerna run遵循--concurrency、--scope、--ignore、--stream和--parallel标志
 Example:
 ``` bash
 # 执行 my-component 包中的 test 脚本 
-> lerna run --scopt my-coponent test
+> lerna run --scope my-coponent test
 ```
 
 ### version:
