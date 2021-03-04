@@ -1,7 +1,9 @@
-35 error Error: Command failed: git tag url_2md@0.0.3 -m url_2md@0.0.3
-35 error fatal: tag 'url_2md@0.0.3' already exists
-35 error
-35 error     at makeError (C:\Users\25386-zhangjc\AppData\Roaming\npm\node_modules\lerna\node_modules\_execa@1.0.0@execa\index.js:174:9)
-35 error     at C:\Users\25386-zhangjc\AppData\Roaming\npm\node_modules\lerna\node_modules\_execa@1.0.0@execa\index.js:278:16
-35 error     at processTicksAndRejections (internal/process/task_queues.js:93:5)
-35 error     at async Promise.all (index 0)
+40 error Error: Command failed: git push --follow-tags --no-verify --atomic origin master
+40 error Connection reset by 13.250.177.223 port 22
+40 error fatal: Could not read from remote repository.
+40 error
+40 error Please make sure you have the correct access rights
+40 error and the repository exists.
+40 error
+40 error     at makeError (D:\workspace\cli-lerna\node_modules\execa\index.js:174:9)
+40 error     at D:\workspace\cli-lerna\node_modules\execa\index.js:278:16
