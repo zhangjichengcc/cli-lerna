@@ -1,7 +1,7 @@
 <!--
  * @Author: zhangjicheng
  * @Date: 2021-03-04 11:28:56
- * @LastEditTime: 2021-03-04 11:38:31
+ * @LastEditTime: 2021-03-04 14:31:33
  * @LastEditors: zhangjicheng
  * @Description: 
  * @FilePath: \cli-lerna\packages\url2md\README.md
@@ -21,7 +21,7 @@
 > npm install -g url_md
 
 # 使用
-> url_md https://*** 
+> url_md -u https://*** 
 ```
 
 ## Options
