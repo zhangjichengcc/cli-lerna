@@ -1,6 +1,6 @@
 {
   "name": "url_md",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "文章url转markdown",
   "main": "index.js",
   "scripts": {
