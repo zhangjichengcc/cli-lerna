@@ -1,7 +1,7 @@
 /*
  * @Author: zhangjicheng
  * @Date: 2021-02-03 17:10:02
- * @LastEditTime: 2021-03-03 18:38:20
+ * @LastEditTime: 2021-03-04 16:00:53
  * @LastEditors: zhangjicheng
  * @Description:
  * @可以输入预定的版权声明、个性签名、空行等
@@ -124,7 +124,7 @@ function urlEnter(url) {
       })
       .on("end", () => {
         const htmlStr = new HtmlStr(html);
-        const htmlTitle = htmlStr.getTags("title")[0];
+        const htmlTitle = htmlStr.getTags("title")?.[0] || '';
         const title = htmlTitle.replace(/[\s\.\|]/g, "") || "markdown";
         // writeHtml(title, html);
         htmlToMd(html)
@@ -148,3 +148,4 @@ program.version(require("../package.json").version, "-v, --version");
 
 program.option("-u, --url <url>", "artical url", main);
 program.parse(process.argv);
+
