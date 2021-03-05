@@ -1,7 +1,7 @@
 /*
  * @Author: zhangjicheng
  * @Date: 2021-02-03 17:10:02
- * @LastEditTime: 2021-03-04 16:00:53
+ * @LastEditTime: 2021-03-04 19:57:31
  * @LastEditors: zhangjicheng
  * @Description:
  * @可以输入预定的版权声明、个性签名、空行等
@@ -16,17 +16,24 @@ const Http = require("http");
 const iconv = require("iconv-lite");
 const html2md = require("html-to-md");
 
+/** 字符串基类 */
+class HtmlString {
+  public html_str: string;
+}
+
 /** 处理html字符串类 */
-class HtmlStr {
+class HtmlStrTools extends HtmlString {
   str: string;
 
-  constructor(str) {
+  public constructor(str: string) {
+    super();
     this.str = str;
   }
 
-  removeTags(tag) {
+  // 移除标签
+  removeTags(tag: string) {
     const reg = new RegExp(`<${tag}[^<${tag}]*?<\\/${tag}>`, "g");
-    const fn = (_str) => {
+    const fn = (_str: string) => {
       const res = _str.replace(reg, "");
       return reg.test(res) ? fn(res) : res;
     };
@@ -34,11 +41,13 @@ class HtmlStr {
     return this;
   }
 
-  getTags(tag) {
+  // 获取标签
+  getTags(tag: string) {
     const reg = new RegExp(`(?<=<${tag}.*?>).*?(?=</${tag}>)`, "g");
     return this.str.match(reg);
   }
 
+  // 获取操作结果字符串
   getStr() {
     return this.str;
   }
@@ -123,7 +132,7 @@ function urlEnter(url) {
         total && bar.tick(chunk.length);
       })
       .on("end", () => {
-        const htmlStr = new HtmlStr(html);
+        const htmlStr = new HtmlStrTools(html);
         const htmlTitle = htmlStr.getTags("title")?.[0] || '';
         const title = htmlTitle.replace(/[\s\.\|]/g, "") || "markdown";
         // writeHtml(title, html);
