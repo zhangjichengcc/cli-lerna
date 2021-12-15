@@ -1,12 +1,13 @@
 <!--
  * @Author: zhangjicheng
  * @Date: 2021-02-26 16:27:11
- * @LastEditTime: 2021-03-03 11:47:23
- * @LastEditors: zhangjicheng
+ * @LastEditTime: 2021-11-22 11:13:21
+ * @LastEditors: Please set LastEditors
  * @Description: 
  * @FilePath: \cli-lerna\README.md
  * @可以输入预定的版权声明、个性签名、空行等
 -->
+
 # `CLI-LERNA`
 
 cli仓库，⚠️依赖统一使用 *[lerna](https://github.com/lerna/lerna)* 进行管理.
@@ -14,36 +15,41 @@ cli仓库，⚠️依赖统一使用 *[lerna](https://github.com/lerna/lerna)* �
 注意： 🌴 本仓库采用 lerna + yarn【WorkSpace】方式进行管理
 
 ## Lerna
-> Lerna能优化git和npm管理多包存储的工作流。Lerna内部使用Yarn和npm CLI来引导项目（即为每个包安装所有第三方依赖）。简单来说，对项目中的每个使用的包Lerna都是用yarn/npm进行安装，然后在引用的包之间创建软链接。 Lerna只是对包管理器进行了一层包装，所以Lerna无法有效的处理node_modules里面的内容
 
+> Lerna能优化git和npm管理多包存储的工作流。Lerna内部使用Yarn和npm CLI来引导项目（即为每个包安装所有第三方依赖）。简单来说，对项目中的每个使用的包Lerna都是用yarn/npm进行安装，然后在引用的包之间创建软链接。 Lerna只是对包管理器进行了一层包装，所以Lerna无法有效的处理node_modules里面的内容
 > Lerna通过 yarn install 安装包，这会对重复引用的包多次安装，这样会使得项目变得过载，因为package.json里面的引用的包是相互独立的，不会批次共享依赖。所以经常使用的第三方包，都会重复安装，这会造成大量重复
 Lerna是先创建包，然后创建包之前的引用链接，这会造成的问题是会引起包管理器node_modules内的不一致，所以从包中运行yarn install可能会破坏Lerna管理的结构。
 
 ## Yarn Workspaces
-> Yarn Workspaces允许用户在单个根package.json文件的子文件夹中从多个package.json文件中安装依赖。
 
+> Yarn Workspaces允许用户在单个根package.json文件的子文件夹中从多个package.json文件中安装依赖。
 > 通过防止Workspaces中依赖包的重复，使原生Workspaces到Yarn可以实现更快更轻松的依赖安装。Yarn还可以在依赖于彼此的Workspaces之间创建软链接，并确保所有目录的一致性和正确性。
+
 ## leran 简单使用
 
 **因为使用`lerna`进行包管理，依赖的安装和删除必须使用lerna 命令操作**
 
 ### Global Options
---loglevel       What level of logs to report.                                       
---concurrency    How many processes to use when lerna parallelizes tasks.             
---reject-cycles  Fail if a cycle is detected among dependencies.                            
---no-progress    Disable progress bars. (Always off in CI)                                    
---no-sort        Do not sort packages topologically (dependencies before dependents).        
---max-buffer     Set max-buffer (in bytes) for subcommand execution                              
--h, --help       Show help                                                                   
--v, --version    Show version number                                                          
+
+--loglevel       What level of logs to report.  
+--concurrency    How many processes to use when lerna parallelizes tasks.  
+--reject-cycles  Fail if a cycle is detected among dependencies.  
+--no-progress    Disable progress bars. (Always off in CI)  
+--no-sort        Do not sort packages topologically (dependencies before dependents).  
+--max-buffer     Set max-buffer (in bytes) for subcommand execution  
+-h, --help       Show help  
+-v, --version    Show version number  
 
 ## Command
-### add:
-`add <package> [globs..] [@version] [--dev] [--exact]  // Add a single dependency to matched packages`    
-将单个依赖添加到匹配的包，默认所有包       
---dev devDependencies 替代 dependencies      
---exact 安装准确版本，就是安装的包版本前面不带^, Eg: "^2.20.0" ➜ "2.20.0"    
+
+### add
+
+`add <package> [globs..] [@version] [--dev] [--exact]  // Add a single dependency to matched packages`  
+将单个依赖添加到匹配的包，默认所有包  
+--dev devDependencies 替代 dependencies  
+--exact 安装准确版本，就是安装的包版本前面不带^, Eg: "^2.20.0" ➜ "2.20.0"  
 Examples:
+
 ``` bash
 # 为packages/prefix-开头的模块添加module-1依赖
 > lerna add module-1 packages/prefix-*
@@ -60,24 +66,29 @@ Examples:
 # Install babel-core in all modules
 > lerna add babel-core
 ```
-       
-### bootstrap:
-`bootstrap [--exact] // Link local packages together and install remaining package dependencies`       
-引导目前Lerna库的所有package，安装它们全部的依赖关系并连接任何相互交叉依赖的关系。     
+
+### bootstrap
+
+`bootstrap [--exact] // Link local packages together and install remaining package dependencies`  
+引导目前Lerna库的所有package，安装它们全部的依赖关系并连接任何相互交叉依赖的关系。  
 lerna bootstrap respects the --ignore, --ignore-scripts, --scope and --include-filtered-dependencies
 
-### changed:
-`changed // List local packages that have changed since the last tagged release`      
+### changed
+
+`changed // List local packages that have changed since the last tagged release`  
 列出自上次标记的版本以来已更改的本地包
 
-### clean:
-`clean // Remove the node_modules directory from all packages`     
+### clean
+
+`clean // Remove the node_modules directory from all packages`  
 删除所有包的 mode_modules 目录
 
-### create:
-`create <name> [loc]  // Create a new lerna-managed package`       
-创建一个新的 lerna 管理包     
+### create
+
+`create <name> [loc]  // Create a new lerna-managed package`  
+创建一个新的 lerna 管理包
 Example:
+
 ``` bash
 # 根目录的package.json, 指定工作目录
 'workspaces': [
@@ -92,11 +103,12 @@ Example:
 > lerna create package2 packages/@jc3910
 ```
 
+### diff
 
-### diff:
-`diff [pkgName] // Diff all packages or a single package since the last release`    
-对比所有包或指定的包与最后一次发布的差异 类似git diff       
+`diff [pkgName] // Diff all packages or a single package since the last release`  
+对比所有包或指定的包与最后一次发布的差异 类似git diff  
 Examples:
+
 ``` bash
 # 查看所有变更
 > lerna diff
@@ -105,10 +117,12 @@ Examples:
 > lerna diff module1
 ```
 
-### exec:
-`exec -- [cmd] [args..] // Execute an arbitrary command in each package`     
+### exec
+
+`exec -- [cmd] [args..] // Execute an arbitrary command in each package`  
 执行任意命令在每一个包。
 Examples:
+
 ``` bash
 # 删除所有模块中的react-dom依赖
 > lerna exec -- npm uninstall react-dom
@@ -119,54 +133,61 @@ Examples:
 # 
 ```
 
-### import：
-`import <dir> // Import a package into the monorepo with commit history`      
+### import
+
+`import <dir> // Import a package into the monorepo with commit history`  
 将包导入具有提交历史记录的monorepo；导入本地已经存在的包
 
+### info
 
-### info:
-`info // Prints debugging information about the local environment`     
-打印有关本地环境的调试信息   
+`info // Prints debugging information about the local environment`  
+打印有关本地环境的调试信息  
 
-### init：
-`init // Create a new Lerna repo or upgrade an existing repo to the current version of Lerna`     
+### init
+
+`init // Create a new Lerna repo or upgrade an existing repo to the current version of Lerna`  
 创建新的Lerna repo 或将现有的repo升级到当前版本的lerna
 
-### link:
-`link // Symlink together all packages that are dependencies of each other`            
+### link
+
+`link // Symlink together all packages that are dependencies of each other`  
 项目包建立软链接，类似`npm link`  
 
-### list:
-`list // show all lerna packages`       
+### list
+
+`list // show all lerna packages`  
 列出所有的包，如果与实际不符，进入相应包执行npm init -y 解决
 
-### publish:
-`publish [bump] // Publish packages in the current project.`     
-发布当前包 npm/git
-> Lerna不会发布标记为私有的软件包（"private": true在中package.json）。    
+### publish
 
+`publish [bump] // Publish packages in the current project.`  
+发布当前包 npm/git
+> Lerna不会发布标记为私有的软件包（"private": true在中package.json）。  
 > 注意：要发布作用域包，您需要在每个包中添加以下内容package.json：
+
 ``` bash
 "publishConfig": {
   "access": "public"
 }
 ```
 
-### run:
-`run <script> // Run an npm script in each package that contains that script`     
-在包含该脚本的每个包中运行一个npm脚本      
-lerna run respects the --concurrency, --scope, --ignore, --stream, and --parallel flags    
+### run
+
+`run <script> // Run an npm script in each package that contains that script`  
+在包含该脚本的每个包中运行一个npm脚本  
+lerna run respects the --concurrency, --scope, --ignore, --stream, and --parallel flags  
 lerna run遵循--concurrency、--scope、--ignore、--stream和--parallel标志
 
 Example:
+
 ``` bash
 # 执行 my-component 包中的 test 脚本 
 > lerna run --scope my-coponent test
 ```
 
-### version:
-`version [bump] // Bump version of packages changed since the last release.`      
+### version
 
+`version [bump] // Bump version of packages changed since the last release.`  
 
 ## yarn.json
 
@@ -195,10 +216,6 @@ Example:
   }
 }
 ```
-
-
-
-
 
 另外可以安装tree插件生成目录文件树
 
